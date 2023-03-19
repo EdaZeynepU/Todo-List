@@ -1,0 +1,153 @@
+
+body{
+    background: #cecece !important;
+}
+.manageTodo{
+    /* background-color: rgb(154, 154, 222); */
+    background-color: rgba(46, 49, 45, 0.747);
+    margin-top: 5vh;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    /**/
+}
+
+.todoInput{
+    padding: 8px;
+    border-radius: 10px;
+    width: 500px;
+    /* border: solid 1px ; */
+}
+
+.addTodo{
+    border-radius: 30% !important;
+    /* display:inline-flex !important; */
+    align-items: center;
+    justify-content: center;
+}
+.searchTodo{
+    border-radius: 30% !important;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tasks{
+    padding-top: 10px;
+    padding-bottom: 10vh;
+    background: #e7eeed;
+    padding-left: 12vw;
+    padding-right: 12vw;
+    display: flex !important;
+    justify-content: center !important;
+
+}
+.task:nth-child(2n){
+    background: #e1f0df;
+    border-bottom: 0.5px #060606 solid;
+    border-top: 0.5px #060606 solid;
+}
+
+.task{
+    padding: 0 8px 0 8px;
+    background: #cddeca;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    flex-wrap: wrap;
+}
+
+.rightTodo{
+    display: inline;
+}
+.rightTodo> button{
+    border: solid 0.5px;
+    border-radius: 30%;
+}
+
+.leftTodo{
+    display: inline;
+}
+
+li{
+    list-style-type: none;
+}
+
+li ul{
+margin: 0;
+}
+
+i{
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .fullTodo{
+        width: 1100px !important;
+    }
+
+    .manageTodo{
+        height: 100px;
+        padding: 10px;
+    }
+
+    .todoInput{
+        height: 40px;
+        width: 400px;
+        padding: 10px;
+    }
+
+    .addTodo{
+        height: 40px;
+        width: 40px;
+    }
+
+    .tasks{
+        width: 100%;
+        height: fit-content;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        /* min-height: 300px; */
+        display: flex;
+    }
+
+}
+
+@media only screen and (max-width: 600px){
+    .manageTodo{
+        margin: 0;
+        width: 100vw;
+    }
+    .fullTodo{
+        width: 100% !important;
+    }
+    .todoInput{
+        width: 70vw;
+    }
+    .addTodo{
+        width: 10vw;
+        max-width: 40px;
+        max-height: 40px;
+        min-width: 30px;
+        min-height: 30px;
+        height: 10vw;
+    }
+    .container{
+        padding: 0 !important;
+    }
+    .tasks{
+        padding: 0;
+        width: 100vw;
+    }
+    body{
+        background-color: #e7eeed !important;
+    }
+    .task{
+        width: 100%;
+    }
+}
