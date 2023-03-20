@@ -1,7 +1,6 @@
 
 body{
     background: #cecece !important;
-    font-size: large !important;
 }
 .manageTodo{
     /* background-color: rgb(154, 154, 222); */
@@ -128,7 +127,6 @@ i{
     }
     .fullTodo{
         width: 100% !important;
-        font-size: medium !important;
     }
     .todoInput{
         width: 70vw;
