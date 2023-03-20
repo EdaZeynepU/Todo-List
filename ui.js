@@ -10,8 +10,8 @@ export default class ui {
     todo.className = "task";
     todo.innerHTML = `
     <div class="leftTodo">
-        <input type="checkbox" class="checkbox">
-        <label>${input}</label>
+        <input type="checkbox" class="checkbox" id="ifChecked">
+        <label class="todoLabel" for="ifChecked">${input}</label>
     </div>
     <div class="rightTodo">
         <button type="button" class="btn btn-outline-dark btn-sm edit">
@@ -31,8 +31,8 @@ export default class ui {
       todo.className = "task";
       todo.innerHTML = `
     <div class="leftTodo">
-        <input type="checkbox" class="checkbox" ${input[1]==true ? "checked":""}>
-        <label>${input[0]}</label>
+        <input type="checkbox" class="checkbox" id="ifChecked" ${input[1]==true ? "checked":""}>
+        <label class="todoLabel" for="ifChecked">${input[0]}</label>
     </div>
     <div class="rightTodo">
         <button type="button" class="btn btn-outline-dark btn-sm edit">

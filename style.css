@@ -1,6 +1,7 @@
 
 body{
     background: #cecece !important;
+    font-size: large !important;
 }
 .manageTodo{
     /* background-color: rgb(154, 154, 222); */
@@ -13,19 +14,16 @@ body{
     display: flex;
     justify-content:center;
     align-items: center;
-    /**/
 }
 
 .todoInput{
     padding: 8px;
     border-radius: 10px;
     width: 500px;
-    /* border: solid 1px ; */
 }
 
 .addTodo{
     border-radius: 30% !important;
-    /* display:inline-flex !important; */
     align-items: center;
     justify-content: center;
 }
@@ -86,6 +84,11 @@ i{
     pointer-events: none;
 }
 
+.checkbox:checked + .todoLabel{
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+
 @media only screen and (max-width: 1200px) {
     .fullTodo{
         width: 1100px !important;
@@ -125,6 +128,7 @@ i{
     }
     .fullTodo{
         width: 100% !important;
+        font-size: medium !important;
     }
     .todoInput{
         width: 70vw;
