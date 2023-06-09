@@ -11,7 +11,7 @@ export default class ui {
     todo.innerHTML = `
     <div class="leftTodo">
         <input type="checkbox" class="checkbox" id="ifChecked">
-        <label class="todoLabel" for="ifChecked">${input}</label>
+        <label class="todoLabel" for="">${input}</label>
     </div>
     <div class="rightTodo">
         <button type="button" class="btn btn-outline-dark btn-sm edit">
