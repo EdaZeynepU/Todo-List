@@ -26,7 +26,7 @@ function eventListeners(){
             st.deleteFromStorage(e.target.parentElement.parentElement.children[0].children[1].textContent);
             UI.deleteFromUI(e);
         });})
-        edit.forEach(editbtn=>{
+    edit.forEach(editbtn=>{
         editbtn.addEventListener("click",(e)=>{
             UI.editUI(e);
         })
@@ -36,12 +36,11 @@ function eventListeners(){
         const todos=st.getTodosFromStorage();
         const x=todos.filter(todo=> todo[0].indexOf(input.value)>=0);
         x.forEach(result=>{
-            UI.addToUI(result[0]);
+            UI.onlyOneFromStorageToUI(result);
         })
     });
     checkboxes.forEach(cbox=>{
         cbox.addEventListener("click",(e)=>{
-            console.log(e.target.checked)
             st.doCheck(e.target.parentElement.children[1].textContent,!e.target.checked);
         })
     })

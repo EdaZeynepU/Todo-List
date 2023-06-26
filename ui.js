@@ -1,17 +1,17 @@
 import storage from "./storage.js";
 
-
 const st = new storage();
 
 export default class ui {
   addToUI(input) {
     const li = document.querySelector("#list");
     const todo = document.createElement("ul");
+    let randomID = Math.random();
     todo.className = "task";
     todo.innerHTML = `
     <div class="leftTodo">
-        <input type="checkbox" class="checkbox" id="ifChecked">
-        <label class="todoLabel" for="">${input}</label>
+        <input type="checkbox" class="checkbox ifChecked" id="${randomID}">
+        <label class="todoLabel" for="${randomID}">${input}</label>
     </div>
     <div class="rightTodo">
         <button type="button" class="btn btn-outline-dark btn-sm edit">
@@ -23,16 +23,14 @@ export default class ui {
     li.appendChild(todo);
   }
 
-  fromStorageToUI() {
-    const li = document.querySelector("#list");
-    const todos = st.getTodosFromStorage();
-    todos.forEach((input) => {
-      const todo = document.createElement("ul");
+  fromStorageToUIHelper(li,input) {
+    const todo = document.createElement("ul");
+      let randomID = Math.random();
       todo.className = "task";
       todo.innerHTML = `
     <div class="leftTodo">
-        <input type="checkbox" class="checkbox" id="ifChecked" ${input[1]==true ? "checked":""}>
-        <label class="todoLabel" for="ifChecked">${input[0]}</label>
+        <input type="checkbox" class="checkbox ifChecked" id="${randomID}" ${input[1]==true ? "checked":""}>
+        <label class="todoLabel" for="${randomID}">${input[0]}</label>
     </div>
     <div class="rightTodo">
         <button type="button" class="btn btn-outline-dark btn-sm edit">
@@ -41,9 +39,23 @@ export default class ui {
             <i class="fas fa-times"></i></button>
     </div>
         `;
-      li.appendChild(todo);
+        li.appendChild(todo);
+  }
+
+  fromStorageToUI() {
+    const li = document.querySelector("#list");
+    const todos = st.getTodosFromStorage();
+    todos.forEach((input) => {
+      this.fromStorageToUIHelper(li,input);
     });
   }
+
+  onlyOneFromStorageToUI(input){
+    const li = document.querySelector("#list");
+    this.fromStorageToUIHelper(li,input)
+  }
+
+
 
   deleteFromUI(e) {
     e.target.parentElement.parentElement.remove();
@@ -82,12 +94,10 @@ export default class ui {
     const change = document.querySelector(".change");
 
     change.addEventListener("click", (e) => {
-      const nTodo =
-        e.target.parentElement.parentElement.children[0].children[1].value;
+      const nTodo = e.target.parentElement.parentElement.children[0].children[1].value;
       this.addToUI(nTodo);
       this.deleteFromUI(e);
       st.addTodoToStorage(nTodo);
-
 
       const del = document.querySelectorAll(".delete");
       const edit = document.querySelectorAll(".edit");
